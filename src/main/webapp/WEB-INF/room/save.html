@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<div>
+    <form class="form"
+          th:object="${room}"
+          th:method="post"
+          th:action="@{/room/save_room}"
+
+          style="width: 500px; height: 300px; margin-top: 200px; margin-left: 500px">
+
+        <div class="form-group">
+            <label for="roomName">room name</label>
+            <input th:field="${room.name}" type="text" class="form-control" id="roomName" aria-describedby="room name"
+                   placeholder="room name">
+        </div>
+        <div class="form-group">
+            <label for="rating">rating</label>
+            <input th:field="${room.rating}" type="number" step="0.1" class="form-control" id="rating" placeholder="rating">
+        </div>
+
+        <div class="form-group now">
+            <label class="col-from-label col-sm-4">cinemaMvc id:</label>
+            <div class="col-sm-8">
+                <select th:field="*{cinemaId}"  class="form-control" required>
+                    <th:block th:each="cinemaMvc:${cinema1}">
+                        <option th:text="${cinemaMvc.name}" th:value="${cinemaMvc.id}">
+                    </th:block>
+                </select>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>update</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body style="background-image: url(https://i8.photo.2gis.com/images/branch/32/4503599646196710_830f.jpg)">
+<div>
+    <form
+            th:object="${session}"
+            th:method="post"
+            th:action="@{/session/merge_update/{id}(id=${session.id})}"
+
+            style="width: 500px; height: 300px; margin-top: 200px; margin-left: 500px">
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">session name</label>
+            <input th:field="${session.name}" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                   placeholder="session name">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">finish</label>
+            <label for="exampleInputPassword"></label><input th:field="${session.finish}" type="text" class="form-control" id="exampleInputPassword" placeholder="finish">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">start</label>
+            <input th:field="${session.start}" type="text" class="form-control" id="exampleInputPassword1" placeholder="start">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">room</label>
+            <label for="exampleInputPassword9"></label><input th:field="${session.rooms}" type="text" class="form-control" id="exampleInputPassword9" placeholder="room">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">movie</label>
+            <label for="exampleInputPassword8"></label><input th:field="${session.movie}" type="text" class="form-control" id="exampleInputPassword8" placeholder="movie">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+    </form>
+</div>
+
+</body>
+
+</html>

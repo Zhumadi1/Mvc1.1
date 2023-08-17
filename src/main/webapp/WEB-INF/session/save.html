@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>form login</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body style="background-image: url(https://i8.photo.2gis.com/images/branch/32/4503599646196710_830f.jpg)">
+<div>
+    <form
+            th:object="${save}"
+            th:method="post"
+            th:action="@{/session/save_session}"
+
+            style="width: 500px; height: 300px; margin-top: 200px; margin-left: 300px">
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">session name</label>
+            <input th:field="${save.name}" type="text" class="form-control" id="exampleInputEmail1"
+                   aria-describedby="session name"
+                   placeholder="session name">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">start</label>
+            <input th:field="${save.start}" type="text" class="form-control" id="exampleInputPassword1"
+                   placeholder="start">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">finish</label>
+            <input th:field="${save.finish}" type="text" class="form-control" id="exampleInputPassword2"
+                   placeholder="language">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">duration</label>
+            <input th:field="${save.duration}" type="text" class="form-control" id="exampleInputPassword3"
+                   placeholder="duration">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">room</label>
+            <input th:field="${save.rooms}" type="text" class="form-control" id="exampleInputPassword4"
+                   placeholder="room">
+        </div>
+        <div class="form-group now">
+            <label class="col-from-label col-sm-4">cinemaMvc id:</label>
+            <div class="col-sm-8">
+                <select th:field="*{movieId}"  class="form-control" required>
+                    <th:block th:each="movie:${movieList}">
+                        <option th:text="${movie.name}" th:value="${movie.id}">
+                    </th:block>
+                </select>
+            </div>
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>form login</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body style="background-image: url(https://i8.photo.2gis.com/images/branch/32/4503599646196710_830f.jpg)">
+<div>
+    <form
+            th:object="${save}"
+            th:method="post"
+            th:action="@{/place/save}"
+
+            style="width: 500px; height: 300px; margin-top: 200px; margin-left: 500px">
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">place x</label>
+            <input th:field="${save.id}" type="text" class="form-control" id="exampleInputEmail1"
+                   aria-describedby="cinemaMvc name"
+                   placeholder="x">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">y</label>
+            <input th:field="${save.y}" type="text" class="form-control" id="exampleInputPassword1"
+                   placeholder="y">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">price</label>
+            <input th:field="${save.price}" type="text" class="form-control" id="exampleInputPassword2"
+                   placeholder="price">
+        </div>
+        <div class="form-group now">
+            <label class="col-from-label col-sm-4">ID:</label>
+            <div class="col-sm-8">
+                <select th:field="*{roomId}"  class="form-control" required>
+                    <th:block th:each="room:${roomList}">
+                        <option th:text="${room.name}" th:value="${room.id}">
+                    </th:block>
+                </select>
+            </div>
+        </div>
+        <input type="submit" value="Submit">    </form>
+</div>
+</body>
+
+</html>

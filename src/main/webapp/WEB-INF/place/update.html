@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>update</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body style="background-image: url(https://i8.photo.2gis.com/images/branch/32/4503599646196710_830f.jpg)">
+<div>
+    <form
+            th:object="${update}"
+            th:method="post"
+            th:action="@{/place/merge_update/{id}(id=${update.id})}"
+
+            style="width: 500px; height: 300px; margin-top: 200px; margin-left: 500px">
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">x</label>
+            <input th:field="${update.x}" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                   placeholder="place">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">room</label>
+            <input th:field="${update.room}" type="text" class="form-control" id="exampleInputPassword" placeholder="room">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">y</label>
+            <input th:field="${update.y}" type="text" class="form-control" id="exampleInputPassword1" placeholder="place">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">price</label>
+            <input th:field="${update.price}" type="text" class="form-control" id="exampleInputPassword6" placeholder="place">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+</body>
+</html>
